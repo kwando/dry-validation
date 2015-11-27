@@ -44,14 +44,6 @@ RSpec.describe Dry::Validation::Schema do
       }.freeze
     end
 
-    describe '#messages' do
-      it 'returns compiled error messages' do
-        expect(validation.messages(attrs.merge(email: ''))).to eql([
-          [:email, ["email must be filled"]]
-        ])
-      end
-    end
-
     describe '#call' do
       it 'passes when attributes are valid' do
         expect(validation.(attrs)).to be_empty
